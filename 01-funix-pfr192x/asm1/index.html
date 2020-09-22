@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRF192x_Project_1_FX06635</title>
+    <script src="js/scripts.js"></script>
+</head>
+
+<body onload="first_comparison_result()">
+    <h1>Assignment submission</h1>
+    <p>
+        <span style="width: 250px; display:inline-flex;">Môn học: </span>
+        <b>PRF192x_03_VN - Xây dựng phần mềm đầu tiên</b>
+    </p>
+    <p>
+        <span style="width: 250px; display:inline-flex;">Tên bài tập: </span>
+        <b>Bài tập số 1 - Option 2 - So sánh chỉ số
+      <a href="https://vi.wikipedia.org/wiki/Ch%E1%BB%89_s%E1%BB%91_kh%E1%BB%91i_c%C6%A1_th%E1%BB%83"
+        target="_blank"><abbr title="Body Mass Index / Chỉ số khối cơ thể / Chỉ số thể trọng">BMI</abbr>
+      </a>
+      của hai người
+    </b>
+    </p>
+    <p>
+        <span style="width: 250px; display:inline-flex;">Họ và tên học viên: </span>
+        <b>Bùi Đoàn Nghĩa Bình</b>
+    </p>
+    <hr>
+
+    <form name="form_BMI">
+        <p>
+            <label for="_1st_person_name_input_id" style="width: 250px; display:inline-flex;">Tên của người thứ nhất</label>
+            <input onchange="update_1_name()" type="text" id="_1st_person_name_input_id" name="_1st_person_name" placeholder="Toàn">
+        </p>
+        <p>
+            <label for="_1st_person_weight_in_kg_input" style="width: 250px; display:inline-flex;">Trọng lượng của bạn&nbsp;
+        <span class="_1st_person_name_class"></span>&nbsp;là:</label>
+            <input onchange="update_1_weight()" type="number" id="_1st_person_weight_in_kg_input" name="_1st_person_weight" placeholder="80"> kg
+        </p>
+        <p>
+            <label for="_1st_person_height_in_cm_input" style="width: 250px; display:inline-flex;">Chiều cao của bạn&nbsp;
+        <span class="_1st_person_name_class"></span>&nbsp;là: </label>
+            <input onchange="update_1_height()" type="number" id="_1st_person_height_in_cm_input" name="_1st_person_height" placeholder="162"> cm
+        </p>
+        <p>
+            <b>
+        <span style="width: 250px; display:inline-flex;">Chỉ số BMI của bạn&nbsp; <span
+            class="_1st_person_name_class"></span>&nbsp;là:</span>
+        <span id="_1st_person_BMI_index_in_kg_m2_id"></span> kg/m<sup>2</sup>
+      </b>
+        </p>
+        <hr>
+
+        <p>
+            <label for="_2nd_person_name_input_id" style="width: 250px; display:inline-flex;">Tên của người thứ hai</label>
+            <input onchange="update_2_name()" type="text" id="_2nd_person_name_input_id" name="_2nd_person_name" placeholder="Minh">
+        </p>
+        <p>
+            <label for="_2nd_person_weight_in_kg_input" style="width: 250px; display:inline-flex;">Trọng lượng của bạn&nbsp;
+        <span class="_2nd_person_name_class"></span>&nbsp;là:</label>
+            <input onchange="update_2_weight()" type="number" id="_2nd_person_weight_in_kg_input" name="_2nd_person_weight" placeholder="50"> kg
+        </p>
+        <p>
+            <label for="_2nd_person_height_in_cm_input" style="width: 250px; display:inline-flex;">Chiều cao của bạn&nbsp;
+        <span class="_2nd_person_name_class"></span>&nbsp;là: </label>
+            <input onchange="update_2_height()" type="number" id="_2nd_person_height_in_cm_input" name="_2nd_person_height" placeholder="175"> cm
+        </p>
+        <p>
+            <b>
+        <span style="width: 250px; display:inline-flex;">Chỉ số BMI của bạn&nbsp;<span
+            class="_2nd_person_name_class"></span>&nbsp;là:</span>
+        <span id="_2nd_person_BMI_index_in_kg_m2_id"></span> kg/m<sup>2</sup>
+      </b>
+        </p>
+        <hr>
+        <p>
+            <b>
+        <span style="width: 250px; display:inline-flex;">Kết quả so sánh:</span>
+        Chỉ số BMI của bạn&nbsp;<span class="_1st_person_name_class"></span>&nbsp;
+        <span id="comparison_result_id"></span>
+        chỉ số BMI của bạn&nbsp;<span class="_2nd_person_name_class"></span>&nbsp;
+      </b>
+        </p>
+    </form>
+</body>
+
+</html>

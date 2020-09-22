@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>PRF192x Project 2 FX06635</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- FX06635's meta tags & title tag -->
+    <meta name="description" content="FX06635 PRF192x Assignment 2 Option 2">
+    <meta name="keywords" content="FX06635, PRF192x, Assignment 2, Option 2">
+    <meta name="author" content="FX06635 Bùi Đoàn Nghĩa Bình">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- FX06635's CSS -->
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <!-- FX06635's JS -->
+    <script src="js/scripts.js"></script>
+</head>
+
+<body onload="firstInitialization()">
+    <div class="container-fluid row">
+        <div class="col-12 col-md-6 mx-auto">
+            <h1 class="my-3">Assignment submission</h1>
+            <p class="mb-1">
+                <span style="width: 250px; display:inline-flex;">Môn học: </span>
+                <b>PRF192x_03_VN - Xây dựng phần mềm đầu tiên</b>
+            </p>
+            <p class="mb-1">
+                <span style="width: 250px; display:inline-flex;">Tên bài tập: </span>
+                <b>Bài tập số 2 - Option 2 - Máy tính</b>
+            </p>
+            <p class="mb-1">
+                <span style="width: 250px; display:inline-flex;">Họ và tên học viên: </span>
+                <b>Bùi Đoàn Nghĩa Bình</b>
+            </p>
+            <hr>
+        </div>
+    </div>
+
+
+    <form class="container-fluid row form-group" name="calculator">
+        <div class="col-12 col-md-6 col-lg-4 border mx-auto">
+            <h1 class="text-center mb-1">Tính toán</h1>
+            <div class="row">
+                <div class="col-12 mb-1">
+                    <input onchange="resultReset()" onclick="number1Selected()" class="form-control border-dark" type="text" name="number1" placeholder="Số thứ nhất">
+                </div>
+                <div class="col-12 mb-1">
+                    <input onchange="resultReset()" onclick="number2Selected()" class="form-control border-dark" type="text" name="number2" placeholder="Số thứ hai">
+                </div>
+                <div class="col-8 mx-auto mb-1">
+                    <div class="row mb-1">
+                        <div class="col-3">
+                            <button onclick="plusSelected()" class="w-100" type="button" name="plus">&plus;</button>
+                        </div>
+                        <div class="col-3">
+                            <button onclick="minusSelected()" class="w-100" type="button" name="minus">&minus;</button>
+                        </div>
+                        <div class="col-3">
+                            <button onclick="timesSelected()" class="w-100" type="button" name="times">&times;</button>
+                        </div>
+                        <div class="col-3">
+                            <button onclick="divSelected()" class="w-100" type="button" name="div">&div;</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <button onclick="exponentiationSelected()" class="w-100" type="button" name="exp">x<sup>y</sup></button>
+                        </div>
+                        <div class="col-6">
+                            <button onclick="modulusSelected()" class="w-100" type="button" name="modulus">x%y</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 mb-1">
+                    <input class="form-control border-dark" typ="text" name="resultDisplay" placeholder="Kết quả tính toán">
+                </div>
+                <div class="col-12 mb-1">
+                    <textarea onclick="displaySelected()" class="form-control border-dark" name="display" placeholder="Bảng hiển thị chung - click chọn ô nhập liệu cho Số thứ nhất hoặc Số thứ 2 hoặc ô này trước khi sử dụng bàn phím số" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="row mb-1">
+                <div class="col-3">
+                    <button onclick="inputClear()" class="w-100 btn btn-primary btn-lg" type="button" style="font-size: xx-large;">C</button>
+                </div>
+                <div class="col-3">
+                    <button onclick="insertParentheses()" class="w-100 btn btn-primary btn-lg" type="button" style="font-size: xx-large;">()</button>
+                </div>
+                <div class="col-3">
+                    <button onclick="clearAtLast()" class="w-100 btn btn-primary btn-lg" type="button" style="font-size: xx-large;">&leftarrow;</button>
+                </div>
+                <div class="col-3">
+                    <button onclick="inputOperator('/')" class="w-100 btn btn-success btn-lg" type="button" style="font-size: xx-large;">&div;</button>
+                </div>
+            </div>
+
+            <div class="row mb-1">
+                <div class="col-3">
+                    <button onclick="inputNumberByButton('7')" class="w-100 btn btn-primary btn-lg" type="button" style="font-size: xx-large;">7</button>
+                </div>
+                <div class="col-3">
+                    <button onclick="inputNumberByButton('8')" class="w-100 btn btn-primary btn-lg" type="button" style="font-size: xx-large;">8</button>
+                </div>
+                <div class="col-3">
+                    <button onclick="inputNumberByButton('9')" class="w-100 btn btn-primary btn-lg" type="button" style="font-size: xx-large;">9</button>
+                </div>
+                <div class="col-3">
+                    <button onclick="inputOperator('*')" class="w-100 btn btn-success btn-lg" type="button" style="font-size: xx-large;">&times;</button>
+                </div>
+            </div>
+
+            <div class="row mb-1">
+                <div class="col-3">
+                    <button onclick="inputNumberByButton('4')" class="w-100 btn btn-primary btn-lg" type="button" style="font-size: xx-large;">4</button>
+                </div>
+                <div class="col-3">
+                    <button onclick="inputNumberByButton('5')" class="w-100 btn btn-primary btn-lg" type="button" style="font-size: xx-large;">5</button>
+                </div>
+                <div class="col-3">
+                    <button onclick="inputNumberByButton('6')" class="w-100 btn btn-primary btn-lg" type="button" style="font-size: xx-large;">6</button>
+                </div>
+                <div class="col-3">
+                    <button onclick="inputOperator('-')" class="w-100 btn btn-success btn-lg" type="button" style="font-size: xx-large;">&minus;</button>
+                </div>
+            </div>
+
+            <div class="row mb-1">
+                <div class="col-3">
+                    <button onclick="inputNumberByButton('1')" class="w-100 btn btn-primary btn-lg" type="button" style="font-size: xx-large;">1</button>
+                </div>
+                <div class="col-3">
+                    <button onclick="inputNumberByButton('2')" class="w-100 btn btn-primary btn-lg" type="button" style="font-size: xx-large;">2</button>
+                </div>
+                <div class="col-3">
+                    <button onclick="inputNumberByButton('3')" class="w-100 btn btn-primary btn-lg" type="button" style="font-size: xx-large;">3</button>
+                </div>
+                <div class="col-3">
+                    <button onclick="inputOperator('+')" class="w-100 btn btn-success btn-lg" type="button" style="font-size: xx-large;">&plus;</button>
+                </div>
+            </div>
+
+            <div class="row mb-1">
+                <div class="col-3">
+                    <button onclick="inverseToggle()" class="w-100 btn btn-primary btn-lg" type="button" style="font-size: xx-large;">&PlusMinus;</button>
+                </div>
+                <div class="col-3">
+                    <button onclick="inputNumberByButton('0')" class="w-100 btn btn-primary btn-lg" type="button" style="font-size: xx-large;">0</button>
+                </div>
+                <div class="col-3">
+                    <button onclick="inputNumberByButton('.')" class="w-100 btn btn-primary btn-lg" type="button" style="font-size: xx-large;">.</button>
+                </div>
+                <div class="col-3">
+                    <button onclick="expressionEval()" class="w-100 btn btn-danger btn-lg" type="button" style="font-size: xx-large;">&equals;</button>
+                </div>
+            </div>
+
+
+
+    </form>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+
+</html>

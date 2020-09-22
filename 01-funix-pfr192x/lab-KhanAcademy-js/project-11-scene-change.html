@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>project-11-scene-change</title>
+    <style>
+        #leafers {
+            position: absolute;
+            top: 210px;
+            left: 378px;
+            animation-name: getbigger;
+            animation-duration: 3s;
+        }
+        
+        @keyframes getbigger {
+            from {
+                width: 30px;
+            }
+            to {
+                width: 250px;
+            }
+        }
+        
+        #duskpin {
+            position: absolute;
+            top: 210px;
+            left: 30px;
+            animation-name: moveleft;
+            animation-duration: 2s;
+        }
+        
+        @keyframes moveleft {
+            from {
+                left: 480px;
+            }
+            to {
+                left: 30px;
+            }
+        }
+        
+        #robot {
+            position: absolute;
+            top: 180px;
+            left: 235px;
+            animation-name: movedown;
+            animation-duration: 5s;
+        }
+        
+        @keyframes movedown {
+            from {
+                top: 0;
+            }
+            to {
+                top: 180;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <img src="https://www.kasandbox.org/programming-images/landscapes/beach-with-palm-trees.png">
+    <img src="https://www.kasandbox.org/programming-images/avatars/leafers-seedling.png" id="leafers">
+    <img src="https://www.kasandbox.org/programming-images/avatars/duskpin-ultimate.png" id="duskpin">
+    <img src="https://www.kasandbox.org/programming-images/avatars/robot_female_3.png" id="robot">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+    <script>
+        var isBigger = true;
+        // Creates a new <audio> element
+        var $sound = $("<audio preload=auto>");
+        // See below for more sound URLs you can use
+        $sound.attr("src",
+            "https://www.kasandbox.org/programming-sounds/retro/boom1.mp3");
+
+        // Plays the sound when the user clicks the #leafers image
+        $("#leafers").on("click", function(event) {
+            let $top = 40 + Math.trunc(Math.random() * 400);
+            let $left = 20 + Math.trunc(Math.random() * 600);
+            //console.log($top);
+            //console.log($left);
+            $(this).css('top', $top).css('left', $left);
+            $("body").append($sound);
+            $sound[0].play();
+        });
+
+        // Make it bigger or smaller when the user clicks the #duskpin image
+        $("#duskpin").on("click", function(event) {
+            let $width = $(this).width();
+            //console.log($width);
+            if (isBigger) {
+                $width = 1.1 * $width;
+                if ($width > 250) {
+                    isBigger = false;
+                }
+            } else {
+                $width = 0.9 * $width;
+                if ($width < 100) {
+                    isBigger = true;
+                }
+            };
+            $(this).width($width);
+        });
+
+        // Toggle src when the user clicks the #robot image
+        $("#robot").on("click", function(event) {
+            let $src = $(this).attr('src');
+            //console.log($src);
+            if ($src == "https://www.kasandbox.org/programming-images/avatars/robot_female_3.png") {
+                $src = "https://www.kasandbox.org/programming-images/avatars/robot_male_2.png";
+            } else {
+                $src = "https://www.kasandbox.org/programming-images/avatars/robot_female_3.png";
+            };
+            $(this).attr('src', $src);
+        });
+
+        /* There are many sound files available under:
+    https://www.kasandbox.org/programming-sounds/
+    
+    rpg/battle-magic.mp3
+    rpg/battle-spell.mp3
+    rpg/battle-swing.mp3
+    rpg/coin-jingle.mp3		
+    rpg/door-open.mp3
+    rpg/giant-hyah.mp3
+    rpg/giant-no.mp3
+    rpg/giant-yah.mp3
+    rpg/hit-clop.mp3
+    rpg/hit-splat.mp3
+    rpg/hit-thud.mp3
+    rpg/hit-whack.mp3
+    rpg/metal-chime.mp3
+    rpg/metal-clink.mp3
+    rpg/step-heavy.mp3
+    rpg/water-slosh.mp3
+    rpg/water-bubble.mp3
+    
+    retro/boom1.mp3
+    retro/boom2.mp3
+    retro/coin.mp3
+    retro/hit1.mp3
+    retro/hit2.mp3				
+	retro/jump1.mp3				
+	retro/jump2.mp3				
+	retro/laser1.mp3				
+	retro/laser2.mp3
+	retro/laser3.mp3
+	retro/laser4.mp3
+	retro/rumble.mp3
+	retro/thruster-long.mp3
+	retro/thruster-short.mp3
+	retro/whistle1.mp3
+	retro/whistle2.mp3
+	*/
+    </script>
+</body>
+
+</html>

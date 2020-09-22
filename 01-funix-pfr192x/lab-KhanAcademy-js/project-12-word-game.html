@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>project-12-word-game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        form {
+            font-size: 1.5em;
+        }
+        
+        .scrambled,
+        input,
+        button {
+            font-family: monospace;
+            font-size: 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Word game!</h1>
+    <form id="joke-form">
+        <label>
+            Unscramble these letters to form a word:<Br>
+            <span class="scrambled"></span>
+            <br>
+            <input type="text" size="10">
+        </label>
+        <button type="submit">Check</button>
+        <p id='message'> </p>
+    </form>
+    <button id='nextQuestion'>Next Question</button>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+    <script>
+        // when the user submits the form,
+        //   check that their answer is correct
+        //   and show them appropriate message
+        var curentQuestion = 0;
+        var answers = ['JQUERY', 'FORM', 'BUTTON', 'HEAD', 'BODY', 'HTML'];
+
+        function myShuffle(str) {
+            let arr = str.split("");
+            let len = arr.length;
+            for (let i = len - 1; i > 0; i--) {
+                let j = Math.floor(Math.random() * (i + 1));
+                let tmp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = tmp;
+            }
+            return arr.join("");
+        }
+
+        function showNextQuestion() {
+            var currentAnswer = myShuffle(answers[curentQuestion])
+                //alert(currentAnswer);
+            $('.scrambled').text(currentAnswer);
+            $('#joke-form').find('[type=text]').val(null);
+            $('#message').text('Wating for your answer!');
+        };
+        $('#joke-form').on('submit', function(event) {
+            event.preventDefault();
+            var answer = $(this).find('[type=text]').val().toUpperCase();
+            if (answer == answers[curentQuestion]) {
+                $('#message').text('Correct!')
+                    .css('color', 'blue');
+            } else {
+                $('#message').text('Not Correct!')
+                    .css('color', 'red');
+            }
+        });
+        $('#nextQuestion').on('click', function() {
+
+            curentQuestion += 1;
+            if (curentQuestion == answers.length) {
+                curentQuestion = 0;
+            };
+            //alert(curentQuestion);
+            showNextQuestion();
+        });
+        $(document).ready(function() {
+            showNextQuestion();
+        });
+    </script>
+</body>
+
+</html>

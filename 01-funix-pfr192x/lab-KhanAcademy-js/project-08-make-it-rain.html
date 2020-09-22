@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>project-08-make-it-rain</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/processing.js/1.6.6/processing.min.js"></script>
+</head>
+
+<body>
+    <script type="application/processing">
+        var xPositions = [];
+        var yPositions = [];
+        var dropSpeeds = [];
+        var colorR = [];
+        var colorG = [];
+        var colorB = [];
+        var windSpeed = 3;
+        
+        void setup() {
+            size(400, 400);
+            noStroke();
+            for (var i = 0; i < 200; i++) {
+                xPositions.push(random(-150, 300));
+                yPositions.push(random(-300, 0));
+                dropSpeeds.push(random(3, 5));
+                colorR.push(random(0, 256));
+                colorG.push(random(0, 256));
+                colorB.push(random(0, 256));
+            }
+        }
+        
+        void draw() {
+            background(33, 33, 33);
+        
+            for (var i = 0; i < xPositions.length; i++) {
+                fill(colorR[i], colorG[i], colorB[i]);
+                ellipse(xPositions[i], yPositions[i], 5, 10);
+                xPositions[i] += windSpeed;
+                yPositions[i] += dropSpeeds[i];
+                if (xPositions[i] > 400) {
+                    xPositions[i] = random(-150, 300);
+                }
+                if (yPositions[i] > 400) {
+                    yPositions[i] = random(-300, 0);
+                }
+            }
+        }
+    </script>
+    <canvas> </canvas>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>project-06-magic-8-ball</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/processing.js/1.6.6/processing.min.js"></script>
+</head>
+
+<body>
+    <script type="application/processing">
+        void setup(){
+            size(400, 400);
+            fill(0, 0, 0);
+            ellipse(200, 200, 375, 375);
+            fill(60, 0, 255);
+            triangle(200, 104, 280, 280, 120, 280);
+            fill(255, 255, 255);
+            var answer = floor(random(1, 5));
+            if (answer === 1) {
+                fill(255, 0, 0);
+                text("No.1", 176, 200);
+                text("MESSAGE 1", 159, 229); 
+            } else if (answer === 2) {
+                fill(0, 255, 0);
+                text("No.2", 176, 200);
+                text("MESSAGE 2", 159, 229); 
+            } else if (answer === 3) {
+                fill(0, 255, 255);
+                text("No.3", 176, 200);
+                text("MESSAGE 3", 159, 229); 
+            } else if (answer === 4) {
+                fill(255, 255, 0);
+                text("No.4", 176, 200);
+                text("MESSAGE 4", 159, 229);
+            }
+        };
+
+        void draw(){};
+    </script>
+    <canvas> </canvas>
+</body>
+
+</html>

@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>project-13-interactive-slideshow</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+        #btnDiv {
+            position: absolute;
+            margin-left: -86px;
+            top: 520px;
+            left: 50%;
+        }
+    </style>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <br>
+    <div class="container-fluid text-center">
+        <figure class="figure">
+            <img id="myImage" class="figure-img" src="https://www.kasandbox.org/programming-images/food/bananas.png" alt="Bananas" height="450">
+            <figcaption class="figure-caption">Bananas</figcaption>
+        </figure>
+        <div id="btnDiv">
+            <button type="button" class="btn btn-primary" id="prevBtn">&lt;&lt; Prev</button>
+            <button type="button" class="btn btn-primary" id="nextBtn">Next &gt;&gt;</button>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script>
+        var imgSrcs = [
+            "https://www.kasandbox.org/programming-images/food/bananas.png",
+            "https://www.kasandbox.org/programming-images/food/berries.png",
+            "https://www.kasandbox.org/programming-images/food/broccoli.png",
+            "https://www.kasandbox.org/programming-images/food/brussels-sprouts.png",
+            "https://www.kasandbox.org/programming-images/food/cake.png",
+            "https://www.kasandbox.org/programming-images/food/chocolates.png",
+            "https://www.kasandbox.org/programming-images/food/coffee-beans.png",
+            "https://www.kasandbox.org/programming-images/food/croissant.png",
+            "https://www.kasandbox.org/programming-images/food/dumplings.png",
+            "https://www.kasandbox.org/programming-images/food/fish_grilled-snapper.png",
+            "https://www.kasandbox.org/programming-images/food/fruits.png",
+            "https://www.kasandbox.org/programming-images/food/grapes.png",
+            "https://www.kasandbox.org/programming-images/food/hamburger.png",
+            "https://www.kasandbox.org/programming-images/food/ice-cream.png",
+            "https://www.kasandbox.org/programming-images/food/mushroom.png",
+            "https://www.kasandbox.org/programming-images/food/oysters.png",
+            "https://www.kasandbox.org/programming-images/food/pasta.png",
+            "https://www.kasandbox.org/programming-images/food/potato-chips.png",
+            "https://www.kasandbox.org/programming-images/food/potatoes.png",
+            "https://www.kasandbox.org/programming-images/food/shish-kebab.png",
+            "https://www.kasandbox.org/programming-images/food/strawberries.png",
+            "https://www.kasandbox.org/programming-images/food/sushi.png",
+            "https://www.kasandbox.org/programming-images/food/tomatoes.png"
+        ];
+        var imgCaptions = [
+            "Bananas",
+            "Berries",
+            "Broccoli",
+            "Brussels sprouts",
+            "Cake",
+            "Chocolates",
+            "Coffee beans",
+            "Croissant",
+            "Dumplings",
+            "Fish grilled snapper",
+            "Fruits",
+            "Grapes",
+            "Hamburger",
+            "Ice cream",
+            "Mushroom",
+            "Oysters",
+            "Pasta",
+            "Potato chips",
+            "Potatoes",
+            "Shish kebab",
+            "Strawberries",
+            "Sushi",
+            "Tomatoes"
+        ];
+        var curentOrder = 0;
+        const imgQuantity = imgSrcs.length;
+
+        function displayUpdate() {
+            $('figcaption').text(imgCaptions[curentOrder]);
+            let $curentImg = $('#myImage');
+            $curentImg.attr('src', imgSrcs[curentOrder]);
+            $curentImg.attr('alt', imgCaptions[curentOrder]);
+            switch (curentOrder) {
+                case 0:
+                case 5:
+                case 10:
+                case 15:
+                case 20:
+                    $curentImg.animate({
+                        padding: '200px',
+                    }, 500);
+                    $curentImg.delay(500);
+                    $curentImg.animate({
+                        padding: '0',
+                    }, 1000);
+                    break;
+
+                case 1:
+                case 6:
+                case 11:
+                case 16:
+                case 21:
+                    $curentImg.animate({
+                        opacity: '0.3',
+                    }, 1000);
+                    $curentImg.animate({
+                        opacity: '1',
+                    }, 1000);
+                    break;
+
+                case 2:
+                case 7:
+                case 12:
+                case 17:
+                case 22:
+                    $curentImg.animate({
+                        height: '225px'
+                    }, 1000);
+                    $curentImg.animate({
+                        height: '450px'
+                    }, 1000);
+                    break;
+
+                case 3:
+                case 8:
+                case 13:
+                case 18:
+                    $curentImg.hide();
+                    $curentImg.fadeIn(2000);
+                    break;
+
+                case 4:
+                case 9:
+                case 14:
+                case 19:
+                    $curentImg.hide();
+                    $curentImg.show(2000);
+                    break;
+                default:
+            }
+        };
+
+        $('#prevBtn').on('click', function() {
+            curentOrder -= 1;
+            if (curentOrder < 0) {
+                curentOrder = imgQuantity - 1
+            };
+            // alert(curentOrder);
+            displayUpdate();
+        });
+
+        $('#nextBtn').on('click', function() {
+            curentOrder += 1;
+            if (curentOrder == imgQuantity) {
+                curentOrder = 0
+            };
+            // alert(curentOrder);
+            displayUpdate();
+        });
+
+        $(document).ready(function() {
+            displayUpdate();
+        });
+    </script>
+</body>
+
+</html>

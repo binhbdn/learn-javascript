@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>PRF192X PROJECT 3 FX06636</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="js/scripts.js"></script>
+</head>
+
+<body>
+
+    <form name="registrationForm" class="container-fluid" novalidate <!-- Tắt tính năng Validate của trình duyệt -->>
+        <div class="row">
+            <div class="col-md-8 mx-auto my-5 px-md-5 shadow-lg border">
+                <h2 class="text-center mt-4">Form đăng ký</h2>
+                <div class="form-row mb-4">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="lastNameId">Họ <span class="text-danger">*</span></label>
+                            <input type="text" name="lastName" id="lastNameId" class="form-control shadow" placeholder="Nhập họ" aria-describedby="helpId1" title="Vui lòng điền vào 2-30 ký tự." <!-- required -->>
+                            <small id="helpId1" class="text-muted">Vui lòng điền vào 2-30 ký tự.</small>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="firstNameId">Tên <span class="text-danger">*</span></label>
+                            <input type="text" name="firstName" id="firstNameId" class="form-control shadow" placeholder="Nhập tên" aria-describedby="helpId2" title="Vui lòng điền vào 2-30 ký tự." <!-- required -->>
+                            <small id="helpId2" class="text-muted">Vui lòng điền vào 2-30 ký tự.</small>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="emailId">Email <span class="text-danger">*</span></label>
+                            <!-- Thông thường type="email" nhưng dưới đây dùng type="text" để tự validate bằng JavaScript -->
+                            <input type="text" name="email" id="emailId" class="form-control shadow" placeholder="Nhập địa chỉ email" aria-describedby="helpId3" title="Vui lòng điền vào theo định dạng username@subdomain.domain" <!-- required -->>
+                            <small id="helpId3" class="text-muted">Vui lòng điền vào theo định dạng username@subdomain.domain</small>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="passwordId">Mật khẩu <span class="text-danger">*</span></label>
+                            <input type="password" name="password" id="passwordId" class="form-control shadow" placeholder="Mật khẩu" aria-describedby="helpId4" title="Vui lòng điền vào 6-30 ký tự." <!-- required -->>
+                            <small id="helpId4" class="text-muted">Vui lòng điền vào 6-30 ký tự.</small>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="reInputPasswordId">Nhập lại mật khẩu <span class="text-danger">*</span></label>
+                            <input type="password" name="reInputPassword" id="reInputPasswordId" class="form-control shadow" placeholder="Xác nhận mật khẩu" aria-describedby="helpId5" title="Vui lòng nhập lại mật khẩu." <!-- required -->>
+                            <small id="helpId5" class="text-muted">Vui lòng nhập lại mật khẩu.</small>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="yearOfBirthId">Năm sinh <span class="text-danger">*</span></label>
+                            <select class="custom-control custom-select shadow" name="yearOfBirth" id="yearOfBirthId" aria-describedby="helpId6" title="Vui lòng chọn năm sinh." <!-- required -->>
+                                <option value="0" selected>-chọn-</option>
+                                <option value="1990">1990</option>
+                                <option value="1991">1991</option>
+                                <option value="1992">1992</option>
+                                <option value="1993">1993</option>
+                                <option value="1994">1994</option>
+                                <option value="1995">1995</option>
+                                <option value="1996">1996</option>
+                                <option value="1997">1997</option>
+                                <option value="1998">1998</option>
+                                <option value="1999">1999</option>
+                                <option value="2000">2000</option>
+                            </select>
+                            <small id="helpId6" class="text-muted">Vui lòng chọn năm sinh.</small>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="cityId">Thành phố <span class="text-danger">*</span></label>
+                            <select class="custom-control custom-select shadow" name="city" id="cityId" aria-describedby="helpId7" title="Vui lòng chọn thành phố." <!-- required -->>
+                              <option value="0" selected>-chọn-</option>
+                              <option value="Hà Nội">Hà Nội</option>
+                              <option value="Hồ Chí Minh">Hồ Chí Minh</option>
+                              <option value="Hải Phòng">Hải Phòng</option>
+                              <option value="Quảng Ninh">Quảng Ninh</option>
+                              <option value="Hà Tĩnh">Hà Tĩnh</option>
+                              <option value="Nghệ An">Nghệ An</option>
+                              <option value="Quảng Bình">Quảng Bình</option>
+                              <option value="Huế">Huế</option>
+                              <option value="Đà Nẵng">Đà Nẵng</option>
+                              <option value="Cần Thơ">Cần Thơ</option>
+                              <option value="Other">Other</option>
+                            </select>
+                            <small id="helpId7" class="text-muted">Vui lòng chọn thành phố.</small>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-check-inline">
+                            Giới tính
+                        </div>
+                        <div class="form-check-inline form-control-sm">
+                            <label for="male" class="form-check-label">
+                                <input type="radio" class="form-check-input" id="male"  name="gender" value="male">Nam
+                            </label>
+                        </div>
+                        <div class="form-check-inline form-control-sm">
+                            <label for="female" class="form-check-label">
+                                <input type="radio" class="form-check-input" id="female" name="gender"value="female">Nữ
+                            </label>
+                        </div>
+                        <div class="form-check-inline form-control-sm">
+                            <label for="other" class="form-check-label">
+                              <input type="radio" class="form-check-input" id="other" name="gender"value="other">Khác
+                          </label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row justify-content-around">
+                            <button onclick="checkRegistrationForm()" type="submit" class="btn btn-primary">Đăng ký</button>
+                            <button type="reset" class="btn btn-danger">Xóa hết</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+let imgStar;
+
+function setup() {
+    createCanvas(400, 400);
+    imgStar = loadImage("images/star.png");
+    var books = [{
+            title: "Aaa Aa Aaa Aa Aaa",
+            author: 'MR. AAAA',
+            stars: 4
+        },
+
+        {
+            title: "Bbb Bb Bbb Bb Bbb",
+            author: 'MR. BBBB',
+            stars: 2
+        },
+
+        {
+            title: "Ccc Cc Ccc Cc Ccc",
+            author: 'MR. CCCC',
+            stars: 3
+        },
+
+        {
+            title: "Ddd Dd Ddd Dd Ddd",
+            author: 'MR. DDDD',
+            stars: 2
+        },
+
+        {
+            title: "Eee Ee Eee Ee Eee",
+            author: 'MR. EEEE',
+            stars: 1
+        },
+
+        {
+            title: "Fff Ff Fff Ff Fff",
+            author: 'MR. FFFF',
+            stars: 2
+        },
+
+        {
+            title: "Ggg Gg Ggg Gg Ggg",
+            author: 'MR. GGGG',
+            stars: 2
+        },
+
+        {
+            title: "Hhh Hh Hhh Hh Hhh",
+            author: 'MR. HHHH',
+            stars: 3
+        }
+    ];
+
+    // draw shelfves
+    fill(173, 117, 33);
+    for (var i = 0; i < ceil(books.length / 3); i++) {
+        rect(0, 130 * i + 120, width, 10);
+    }
+
+    // draw books
+    for (var i = 0; i < books.length; i++) {
+        var xPos = i % 3 * 130 + 25;
+        var yPos = floor(i / 3) * 130 + 20;
+
+        books[i].color = color(random(50, 200), random(50, 200), random(50, 200));
+        fill(books[i].color);
+        rect(xPos, yPos, 90, 100);
+
+        fill(0, 0, 0);
+        textSize(12);
+        text(books[i].title, xPos + 5, yPos + 9, 70, 100);
+        for (var j = 0; j < books[i].stars; j++) {
+            image(imgStar, xPos + j * 20 + 3, yPos + 40, 20, 30);
+            textSize(8);
+            text(books[i].author, xPos + 5, yPos + 85, 70, 100);
+        }
+    }
+}
+
+function draw() {};

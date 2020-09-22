@@ -1,0 +1,38 @@
+.outsideContainer {
+    width: 720px;
+    height: 460px;
+    margin: 2rem auto;
+    border: 1px solid grey;
+    position: relative;
+}
+
+.myImg {
+    position: absolute;
+}
+
+.displayNone {
+    display: none;
+}
+
+.buttonContainer {
+    margin: 1rem 0;
+    position: absolute;
+    top: 400px;
+    left: 50%;
+    margin-left: -148px;
+}
+
+button {
+    background-color: hotpink;
+    width: 30px;
+    height: 30px;
+    margin: 0 0.5rem;
+    font-weight: bold;
+    border-style: none;
+    border-radius: 50%;
+}
+
+.activeButton {
+    background-color: blue;
+    color: white;
+}
